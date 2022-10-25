@@ -1,7 +1,7 @@
 image: Ubuntu
 
 install:
-- cd /usr/local && curl -L https://dl.dagger.io/dagger/install.sh | sh && dagger version
+- cd /usr/local && curl -L https://dl.dagger.io/dagger/install.sh | sudo sh && dagger version
 - dagger project init
 - dagger project update
 - dagger do load --log-format plain
