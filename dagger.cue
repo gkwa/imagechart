@@ -72,10 +72,6 @@ import (
 					args: ["-rf", "/tmp/redis"]
 				}
 			},
-			docker.#Copy & {
-				contents: app
-				dest:     "/app"
-			},
 		]
 	}
 }
