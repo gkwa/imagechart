@@ -24,19 +24,13 @@ import (
 			docker.#Run & {
 				command: {
 					name: "apt"
-					args: ["-y", "install", "redis", "tcl", "tcl-tls"]
+					args: ["-y", "install", "redis", "tcl", "tcl-tls", "libssl-dev"]
 				}
 			},
 			docker.#Run & {
 				command: {
 					name: "apt"
-					args: ["-y", "install", "git", "pkg-config", "build-essential"]
-				}
-			},
-			docker.#Run & {
-				command: {
-					name: "apt"
-					args: ["-y", "install", "libssl-dev"]
+					args: ["-y", "install", "pkg-config", "build-essential"]
 				}
 			},
 			docker.#Run & {
