@@ -78,28 +78,20 @@ import (
 
 dagger.#Plan & {
 	actions: {
-		buildImages: {
-			redisTLSBuild: #RedisTLS & {
-				app: client.filesystem.".".read.contents
-			}
+		buildImages: redisTLSBuild: #RedisTLS & {
+			app: client.filesystem.".".read.contents
 		}
 
-		load: {
-			redisbuildImageToLocalDockerRepo: cli.#Load & {
-				image: buildImages.redisTLSBuild.image
-				host:  client.network."unix:///var/run/docker.sock".connect
-				tag:   "redistls-dagger:latest"
-			}
+		load: redisbuildImageToLocalDockerRepo: cli.#Load & {
+			image: buildImages.redisTLSBuild.image
+			host:  client.network."unix:///var/run/docker.sock".connect
+			tag:   "redistls-dagger:latest"
 		}
 	}
 
 	client: {
-		env: {
-			DEBIAN_FRONTEND: "noninteractive"
-		}
+		env: DEBIAN_FRONTEND: "noninteractive"
 		network: "unix:///var/run/docker.sock": connect: dagger.#Socket
-		filesystem: ".": {
-			read: contents: dagger.#FS
-		}
+		filesystem: ".": read: contents: dagger.#FS
 	}
 }

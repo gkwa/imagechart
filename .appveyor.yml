@@ -9,3 +9,4 @@ test_script:
 - dagger project init
 - dagger project update
 - dagger do load --log-format plain
+- docker images
