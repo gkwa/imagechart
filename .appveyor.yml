@@ -1,7 +1,8 @@
 image: Ubuntu
 
 install:
-- pushd /usr/local && curl -L https://dl.dagger.io/dagger/install.sh | sudo sh &&
+- pushd /usr/local &&
+    curl -L https://dl.dagger.io/dagger/install.sh | sudo sh &&
     dagger version &&
     popd
 
