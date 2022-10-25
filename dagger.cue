@@ -24,7 +24,7 @@ import (
 			docker.#Run & {
 				command: {
 					name: "apt"
-					args: ["-qy", "install", "redis", "tcl", "tcl-tls", "libssl-dev"]
+					args: ["-qy", "install", "redis", "tcl", "tcl-tls", "libssl-dev", "libjemalloc-dev"]
 				}
 			},
 			docker.#Run & {
